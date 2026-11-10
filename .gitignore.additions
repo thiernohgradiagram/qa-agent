@@ -1,0 +1,11 @@
+# Amica AI quote-agent runtime artifacts
+.quote-agent/
+playwright/.auth/
+.auth/
+*.trace.zip
+
+# Generated per-run Playwright functions and evidence
+**/generated-function.js
+**/generated-function.sha256
+**/screenshots/
+**/videos/
