@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "quote-knowledge.schema.json",
+  "title": "Approved Quote Application Knowledge",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "knowledgeVersion",
+    "entries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "knowledgeVersion": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "updatedAt": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "kind",
+          "scope",
+          "fact",
+          "provenance",
+          "confidence",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "page",
+              "control",
+              "transition",
+              "branch",
+              "validation",
+              "route"
+            ]
+          },
+          "scope": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "environment",
+              "product",
+              "jurisdiction"
+            ],
+            "properties": {
+              "environment": {
+                "type": "string"
+              },
+              "product": {
+                "type": "string"
+              },
+              "jurisdiction": {
+                "type": "string"
+              },
+              "buildId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "featureFlags": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "quoteVariant": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "fact": {
+            "type": "object",
+            "additionalProperties": true
+          },
+          "provenance": {
+            "type": "object",
+            "required": [
+              "source",
+              "firstObservedAt",
+              "lastVerifiedAt",
+              "verificationCount"
+            ],
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "firstObservedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "lastVerifiedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "verificationCount": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "runIds": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "evidenceRefs": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "confidence": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "active",
+              "deprecated",
+              "superseded"
+            ]
+          },
+          "supersedes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
