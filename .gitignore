@@ -1,0 +1,12 @@
+# Generated quote-agent runtime artifacts (never commit)
+.quote-agent/
+playwright/.auth/
+.auth/
+*.trace.zip
+**/generated-function.js
+**/generated-function.sha256
+**/screenshots/
+**/videos/
+.env
+.env.*
+!.env.example
