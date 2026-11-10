@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "run-result.schema.json",
+  "title": "Quote Run Result",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "runId",
+    "status",
+    "environment",
+    "product",
+    "jurisdiction",
+    "startedAt",
+    "finishedAt",
+    "durationMs",
+    "checkpoints",
+    "branchesTaken",
+    "artifacts"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "SUCCESS",
+        "AUTOMATION_DRIFT",
+        "APPLICATION_DEFECT",
+        "TEST_DATA_FAILURE",
+        "AUTHENTICATION_FAILURE",
+        "ENVIRONMENT_FAILURE",
+        "POLICY_VIOLATION",
+        "NEEDS_REVIEW"
+      ]
+    },
+    "environment": {
+      "type": "string"
+    },
+    "product": {
+      "type": "string"
+    },
+    "jurisdiction": {
+      "type": "string"
+    },
+    "buildId": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "startedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "finishedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "durationMs": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "finalUrl": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "lastSuccessfulCheckpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expectedNextCheckpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "checkpoints": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "branchesTaken": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "assertions": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "quote": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "consoleSummary": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "networkSummary": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "policyReportPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "driftReportPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "learningCandidatePath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}
