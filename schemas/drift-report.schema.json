@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "drift-report.schema.json",
+  "title": "Automation Drift Report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "runId",
+    "lastSuccessfulCheckpoint",
+    "expectedNextCheckpoint",
+    "currentUrl",
+    "headings",
+    "controls",
+    "evidence"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "const": "1.0.0"
+    },
+    "runId": {
+      "type": "string"
+    },
+    "lastSuccessfulCheckpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "expectedNextCheckpoint": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "currentUrl": {
+      "type": "string"
+    },
+    "headings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "controls": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "consoleErrors": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "failedRequests": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "screenshotPath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "tracePath": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "classificationConfidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
+  }
+}
