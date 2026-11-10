@@ -1,0 +1,7 @@
+{
+  "$schema": "../schemas/quote-knowledge.schema.json",
+  "schemaVersion": "1.0.0",
+  "knowledgeVersion": 0,
+  "updatedAt": null,
+  "entries": []
+}
